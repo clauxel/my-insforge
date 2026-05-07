@@ -302,6 +302,7 @@ img {
 
 .ifg-hero-trust,
 .ifg-badge-row,
+.ifg-panel-actions,
 .ifg-checkout-actions,
 .ifg-article-cta-actions,
 .ifg-footer-inner,
@@ -404,6 +405,12 @@ img {
   font-size: 1.85rem;
   line-height: 1.02;
   max-width: 15ch;
+}
+
+.ifg-panel-actions {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 18px;
 }
 
 .ifg-choice-stack {
@@ -988,8 +995,22 @@ img {
 }
 
 .ifg-pricing-page-hero {
-  padding: 52px 0 8px;
-  max-width: 860px;
+  padding: 36px 0 0;
+  max-width: 780px;
+}
+
+.ifg-pricing-page-hero h1 {
+  font-size: 3.5rem;
+  line-height: 0.96;
+}
+
+.ifg-pricing-section.standalone {
+  padding-top: 20px;
+}
+
+.ifg-pricing-section.standalone .ifg-pricing-head h2 {
+  font-size: 2.4rem;
+  line-height: 1;
 }
 
 .ifg-article {
@@ -1228,10 +1249,18 @@ img {
     order: 1;
   }
 
+  .ifg-panel-actions .ifg-btn {
+    flex: 1 1 160px;
+  }
+
   .ifg-hero h1,
   .ifg-pricing-page-hero h1,
   .ifg-article h1 {
     font-size: clamp(2.35rem, 13vw, 3.55rem);
+  }
+
+  .ifg-pricing-page-hero h1 {
+    font-size: 2.65rem;
   }
 
   .ifg-proof-strip,

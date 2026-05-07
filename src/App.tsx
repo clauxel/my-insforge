@@ -87,7 +87,7 @@ const proofItems = [
   { label: 'Core surfaces', value: '7', detail: 'Auth, Postgres APIs, storage, realtime, functions, AI, deployment' },
   { label: 'Open-source base', value: 'GitHub', detail: 'Evaluate the repository before you ever commit to a hosted path' },
   { label: 'Trust signal', value: 'YC P26', detail: 'Public founder story plus a visible shipping cadence' },
-  { label: 'Annual savings', value: '50%', detail: 'Pro annual is selected by default because it removes purchase hesitation' },
+  { label: 'Annual savings', value: '50%', detail: 'Pro annual is selected by default for teams ready to keep shipping' },
 ]
 
 const moduleCards = [
@@ -142,7 +142,7 @@ const pricingFaqs = [
   {
     question: 'Why is Pro selected by default?',
     answer:
-      'Because most buyers arriving from AI-assisted development already need more than a tiny prototype lane. Pro is the lowest-friction commercial default.',
+      'Because most teams arriving from AI-assisted development already need more than a tiny prototype lane. Pro is the simplest commercial default.',
   },
   {
     question: 'Why does annual billing cost 50% less?',
@@ -160,7 +160,7 @@ const legalPrivacySections = [
   {
     title: 'What we collect',
     paragraphs: [
-      'This site collects limited analytics, checkout metadata, and the information you submit through payment or support flows.',
+      'This service collects limited analytics, checkout metadata, and the information you submit through payment or support flows.',
       'We do not ask you to upload private datasets just to use the homepage planner. The planner runs in the browser from your selections only.',
     ],
   },
@@ -617,6 +617,17 @@ export default function App() {
           </div>
         </div>
 
+        <div className="ifg-panel-actions">
+          <button type="button" className="ifg-btn ifg-btn-primary" onClick={() => startDefaultCheckout('planner-top-pro-annual')}>
+            <Rocket size={18} />
+            {ctaPrimary}
+          </button>
+          <button type="button" className="ifg-btn ifg-btn-ghost" onClick={jumpToPricing}>
+            <Globe2 size={18} />
+            Review plans
+          </button>
+        </div>
+
         <div className="ifg-choice-stack">
           <section className="ifg-choice-group">
             <div className="ifg-choice-label">Product motion</div>
@@ -827,14 +838,6 @@ export default function App() {
               <strong className="ifg-billing-note">
                 {billing === 'annual' ? `${formatMoney(monthly * 12)} billed annually` : 'Billed monthly'}
               </strong>
-              <ul>
-                {plan.bullets.map((bullet) => (
-                  <li key={bullet}>
-                    <Check size={15} />
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
               <div className="ifg-plan-actions">
                 <button
                   type="button"
@@ -852,6 +855,14 @@ export default function App() {
                         : 'Open Starter annual'}
                 </button>
               </div>
+              <ul>
+                {plan.bullets.map((bullet) => (
+                  <li key={bullet}>
+                    <Check size={15} />
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
               {selectedPlanId === plan.id ? <span className="ifg-plan-selected">Selected</span> : null}
             </article>
           )
@@ -930,8 +941,8 @@ export default function App() {
                 <strong>{plannerResult.headline}</strong>
               </div>
               <div className="ifg-proof-row">
-                <span>Default plan bias</span>
-                <strong>Pro annual, because conversion dies when the plan feels too small</strong>
+                <span>Commercial default</span>
+                <strong>Pro annual, with 50% yearly savings already applied</strong>
               </div>
               <div className="ifg-proof-row">
                 <span>What to do next</span>
@@ -959,7 +970,7 @@ export default function App() {
             <h2>InsForge is interesting because it solves the backend-operability gap, not just the backend checklist.</h2>
             <p>
               AI can generate a frontend quickly. The product usually stalls when auth, schemas, storage, and deployment become real.
-              This site is built to make that backend decision legible fast enough that the buyer still clicks.
+              InsForge makes that backend decision concrete while the team still has momentum.
             </p>
           </div>
 
@@ -1000,8 +1011,8 @@ export default function App() {
         <section className="ifg-section">
           <div className="ifg-section-head">
             <p className="ifg-eyebrow">Useful inner pages</p>
-            <h2>These pages are built to answer the real question behind the search, not just catch the impression.</h2>
-            <p>GitHub, AI, compare, YC, founder context, dev workflow, docs, and pricing each get their own useful page.</p>
+            <h2>Explore the InsForge questions people usually ask before choosing a backend.</h2>
+            <p>GitHub, AI, comparison, YC, founder context, dev workflow, docs, and pricing each get a practical guide.</p>
           </div>
           <div className="ifg-guide-grid">
             {[...keywordPages, { path: '/pricing', eyebrow: 'Pricing', h1: 'InsForge pricing', intent: 'Choose the right managed plan and open checkout without leaving the current page.' }].map((page) => (
@@ -1079,8 +1090,8 @@ export default function App() {
         <aside className="ifg-article-cta">
           <div>
             <p className="ifg-eyebrow">Recommended next step</p>
-            <h2>Keep the product context in view, then open Pro annual while the decision still feels obvious.</h2>
-            <p>That is the whole point of the site structure: reduce uncertainty before the price is even on screen.</p>
+            <h2>Keep the product context in view, then choose the plan that fits your launch.</h2>
+            <p>Use the guide to keep the backend decision grounded before you move into checkout.</p>
           </div>
           <div className="ifg-article-cta-actions">
             <button type="button" className="ifg-btn ifg-btn-primary" onClick={() => startDefaultCheckout(`article-${page.path}`)}>
@@ -1103,7 +1114,7 @@ export default function App() {
         <p className="ifg-eyebrow">Pricing</p>
         <h1>Choose the plan that keeps your backend moving after the frontend demo is already done.</h1>
         <p className="ifg-lede">
-          The point of the pricing page is not to force a detour. It is to make plan choice feel simple enough that checkout can open in one click and stay in a centered popup.
+          Pro annual is preselected for production-minded teams, with yearly billing at 50% off and checkout kept in a centered Creem popup.
         </p>
       </section>
       {renderPricingSection(true)}

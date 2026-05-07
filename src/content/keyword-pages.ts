@@ -112,7 +112,7 @@ export const keywordPages: KeywordPage[] = [
       'A useful InsForge vs Supabase comparison focused on operator model, agent workflows, and when each backend fits better.',
     h1: 'InsForge vs Supabase: the real difference is who the backend is designed for',
     eyebrow: 'Comparison',
-    intent: 'For buyers comparing InsForge and Supabase who care less about checkbox parity and more about how the backend is actually operated.',
+    intent: 'For teams comparing InsForge and Supabase who care less about checkbox parity and more about how the backend is actually operated.',
     lede:
       'The official InsForge comparison page gets to the heart of it: both platforms cover the familiar backend surface of database, auth, storage, functions, and realtime. The more meaningful difference is operator model. Supabase is optimized for human-operated workflows, while InsForge is positioned for agentic coding where AI tools are expected to provision and operate backend systems directly.',
     sections: [
@@ -154,7 +154,7 @@ export const keywordPages: KeywordPage[] = [
     path: '/yc',
     title: 'InsForge YC Story and What It Signals',
     description:
-      'A useful read on InsForge and YC: the repeated applications, the eventual P26 acceptance, and why the story matters to buyers.',
+      'A useful read on InsForge and YC: the repeated applications, the eventual P26 acceptance, and why the story matters to teams evaluating the product.',
     h1: 'InsForge YC: why the admission story matters more than the badge alone',
     eyebrow: 'YC story',
     intent: 'For people searching InsForge YC because they want to know whether the company has real momentum or just a nice tagline.',
@@ -164,7 +164,7 @@ export const keywordPages: KeywordPage[] = [
       {
         heading: 'What the public YC story actually says',
         paragraphs: [
-          'The story is not just “we got into YC.” It is that the founders were rejected repeatedly, kept shipping, and used user interviews to decide not to pivot away from the product. That is useful signal for buyers because it suggests persistence and a tighter understanding of the real customer.',
+          'The story is not just “we got into YC.” It is that the founders were rejected repeatedly, kept shipping, and used user interviews to decide not to pivot away from the product. That is useful signal because it suggests persistence and a tighter understanding of the real customer.',
           'Their March 31, 2026 update then tied that YC milestone to a faster shipping cadence: InsForge 2.0, Product Hunt traction, GitHub momentum, and dashboard improvements. That is more meaningful than a logo wall.',
         ],
         bullets: [
@@ -174,10 +174,10 @@ export const keywordPages: KeywordPage[] = [
         ],
       },
       {
-        heading: 'Why buyers should care at all',
+        heading: 'Why the YC signal matters',
         paragraphs: [
-          'Buyers should care only insofar as YC lowers risk around team quality and execution speed. It should never replace a product evaluation, but it can make a new infrastructure product feel less speculative.',
-          'That is why a good commercial site uses the YC story as supporting trust, not as the whole pitch. The product still has to solve the backend-operability problem well.',
+          'YC matters only insofar as it lowers risk around team quality and execution speed. It should never replace a product evaluation, but it can make a new infrastructure product feel less speculative.',
+          'The useful role of the YC story is supporting trust. The product still has to solve the backend-operability problem well.',
         ],
       },
     ],
@@ -218,7 +218,7 @@ export const keywordPages: KeywordPage[] = [
         ],
       },
       {
-        heading: 'How the founder story helps a buyer',
+        heading: 'How the founder story helps evaluation',
         paragraphs: [
           'Founder context is useful when it explains why the product feels the way it does. In InsForge’s case, the public story helps explain the stubborn focus on coding agents as first-class backend operators.',
           'That is more useful than a generic founder bio because it connects directly to whether the product direction aligns with how your team wants to build.',
@@ -232,7 +232,7 @@ export const keywordPages: KeywordPage[] = [
           'Publicly, Hang Huang is listed as CEO and co-founder and Tony Chang is listed as CTO and co-founder across official InsForge posts.',
       },
       {
-        question: 'Why should a buyer care about the founders?',
+        question: 'Why should teams care about the founders?',
         answer:
           'Only because their public writing reveals whether the team understands the technical and workflow pain the product claims to solve.',
       },

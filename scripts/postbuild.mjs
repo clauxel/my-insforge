@@ -133,6 +133,9 @@ await writeStaticPage('/checkout/done', {
   structuredData: [],
 })
 
+await writeRobotsTxt()
+await writeSitemapXml(keywordPages)
+
 async function loadKeywordPages() {
   const source = await fs.readFile(keywordSourcePath, 'utf8')
   const transpiled = ts.transpileModule(source, {
@@ -199,6 +202,49 @@ function upsertMeta(html, attrName, attrValue, content) {
 function stripContext(item) {
   const { '@context': _context, ...rest } = item
   return rest
+}
+
+async function writeRobotsTxt() {
+  await fs.writeFile(
+    path.join(distDir, 'robots.txt'),
+    `User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /checkout/done
+Sitemap: ${origin}/sitemap.xml
+`,
+  )
+}
+
+async function writeSitemapXml(pages) {
+  const today = new Date().toISOString().slice(0, 10)
+  const routes = [
+    { path: '/', priority: '1.0', changefreq: 'weekly' },
+    ...pages.map((page) => ({ path: page.path, priority: '0.8', changefreq: 'monthly' })),
+    { path: '/pricing', priority: '0.9', changefreq: 'weekly' },
+    { path: '/privacy', priority: '0.4', changefreq: 'monthly' },
+    { path: '/terms', priority: '0.4', changefreq: 'monthly' },
+  ]
+
+  const body = routes
+    .map(
+      (route) => `  <url>
+    <loc>${origin}${route.path === '/' ? '/' : route.path}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${route.changefreq}</changefreq>
+    <priority>${route.priority}</priority>
+  </url>`,
+    )
+    .join('\n')
+
+  await fs.writeFile(
+    path.join(distDir, 'sitemap.xml'),
+    `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${body}
+</urlset>
+`,
+  )
 }
 
 function buildHomePrerender() {

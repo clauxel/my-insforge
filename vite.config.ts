@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     hmr: {
-      port: 24687,
+      port: 24707,
     },
     proxy: {
       '/api': {

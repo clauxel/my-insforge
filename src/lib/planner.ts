@@ -265,7 +265,7 @@ export function analyzePlannerSelection(selection: PlannerSelection): PlannerRes
       : 'Do not let the excitement around fast setup hide the need for good schema decisions.',
     selection.launchPriority === 'migration'
       ? 'Migration work wins when you inventory auth, data, storage, and environment differences before rewriting app code.'
-      : 'Fast launch paths convert best when the first backend scope stays small and obvious.',
+      : 'Fast launch paths work best when the first backend scope stays small and obvious.',
   ])
 
   const nextSteps = dedupe([
@@ -308,8 +308,8 @@ export function analyzePlannerSelection(selection: PlannerSelection): PlannerRes
 
   const proofLine =
     selection.productMotion === 'migration'
-      ? 'Use the compare and docs pages before checkout so the migration story stays concrete.'
-      : 'Use the docs and AI pages before checkout if you want the stack rationale to stay concrete.'
+      ? 'Use the compare and docs pages to keep the migration path concrete.'
+      : 'Use the docs and AI pages to keep the stack rationale concrete.'
 
   return {
     fitScore: score,
