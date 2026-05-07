@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="InsForge">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffbe77" />
+      <stop offset="55%" stop-color="#c76834" />
+      <stop offset="100%" stop-color="#83ebb1" />
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="52" height="52" rx="16" fill="#11161c" />
+  <path d="M20 18h24v8H31v7h11v8H31v13h-11z" fill="url(#g)" />
+  <path d="M38 18h6l-8 12h-6z" fill="#f7f1e8" opacity=".92" />
+</svg>
