@@ -1112,7 +1112,7 @@ img {
 
 .ifg-checkout-modal {
   position: relative;
-  width: min(560px, 100%);
+  width: min(448px, 100%);
   padding: 28px;
   border-radius: 30px;
   background:
