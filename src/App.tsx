@@ -11,7 +11,6 @@ import {
   FolderKanban,
   Globe2,
   LockKeyhole,
-  Network,
   Play,
   Rocket,
   ShieldCheck,
@@ -49,7 +48,6 @@ type CheckoutModalState = {
 }
 
 const ctaPrimary = 'Start Pro annual'
-const ctaSecondary = 'Run the planner'
 
 const plans: Array<{
   id: PlanId
@@ -908,17 +906,7 @@ export default function App() {
                 <Rocket size={18} />
                 {ctaPrimary}
               </button>
-              <button
-                type="button"
-                className="ifg-btn ifg-btn-ghost"
-                onClick={() => {
-                  trackEvent('planner_scroll')
-                  scrollToHashTarget('#planner')
-                }}
-              >
-                <Network size={18} />
-                {ctaSecondary}
-              </button>
+              <span className="ifg-annual-save-note">Annual saves 50% vs monthly</span>
               <button type="button" className="ifg-btn ifg-btn-subtle" onClick={jumpToPricing}>
                 <Globe2 size={18} />
                 Review plans

@@ -256,6 +256,7 @@ function buildHomePrerender() {
           <h1>Let your AI-built product grow a backend your agents can actually operate.</h1>
           <p class="ifg-lede">Plan auth, Postgres APIs, storage, functions, MCP, and AI workflow priorities in the browser before you open checkout.</p>
           <p><a class="ifg-btn ifg-btn-primary" href="/pricing">Start Pro annual</a></p>
+          <p>Annual saves 50% vs monthly.</p>
         </div>
       </section>
     </main>`

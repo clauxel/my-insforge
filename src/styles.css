@@ -295,9 +295,20 @@ img {
 
 .ifg-hero-actions {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 28px;
+}
+
+.ifg-annual-save-note {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 4px;
+  color: var(--accent-deep);
+  font-size: 0.92rem;
+  font-weight: 800;
 }
 
 .ifg-hero-trust,
@@ -1257,6 +1268,12 @@ img {
   .ifg-pricing-page-hero h1,
   .ifg-article h1 {
     font-size: clamp(2.35rem, 13vw, 3.55rem);
+  }
+
+  .ifg-annual-save-note {
+    width: 100%;
+    min-height: 0;
+    padding-left: 4px;
   }
 
   .ifg-pricing-page-hero h1 {
