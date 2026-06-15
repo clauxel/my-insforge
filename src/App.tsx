@@ -206,8 +206,8 @@ async function readJsonResponse<T>(response: Response): Promise<T | null> {
   }
 }
 
-async function createCheckoutSession(planId: PlanId, billing: Billing) {
-  const response = await fetch('/api/checkout', {
+async function createCheckoutSession(planId: PlanId, billing: Billing, endpoint = '/api/checkout') {
+  const response = await fetch(endpoint, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ planId, billing }),
@@ -403,7 +403,7 @@ export default function App() {
     trackEvent('planner_change', { key, value })
   }
 
-  async function startHostedCheckout(planId: PlanId, nextBilling: Billing, loadingKey: string) {
+  async function startHostedCheckout(planId: PlanId, nextBilling: Billing, loadingKey: string, provider = 'creem') {
     setSelectedPlanId(planId)
     setBilling(nextBilling)
     setCheckoutLoadingKey(loadingKey)
@@ -413,7 +413,7 @@ export default function App() {
     const popup = openCenteredCheckoutWindow()
 
     try {
-      const url = await createCheckoutSession(planId, nextBilling)
+      const url = await createCheckoutSession(planId, nextBilling, provider === 'nowpayments' ? '/api/nowpayments-checkout' : '/api/checkout')
       const popupOpened = sendPopupToCheckout(popup, url)
       if (!popupOpened) {
         try {
@@ -851,6 +851,14 @@ export default function App() {
                       : plan.id === 'scale'
                         ? 'Open Scale annual'
                         : 'Open Starter annual'}
+                </button>
+                <button
+                  type="button"
+                  className="ifg-btn ifg-btn-ghost"
+                  onClick={() => void startHostedCheckout(plan.id, billing, `${loadingKey}-wallet`, 'nowpayments')}
+                  disabled={checkoutLoadingKey !== null}
+                >
+                  {checkoutLoadingKey === `${loadingKey}-wallet` ? 'Opening USDC wallet...' : 'Pay with USDC Wallet'}
                 </button>
               </div>
               <ul>

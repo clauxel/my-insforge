@@ -1,0 +1,21 @@
+# InsForge Space
+
+Plan an InsForge backend in the browser, then launch auth, Postgres APIs, storage, functions, MCP, and AI workflows without losing product momentum.
+
+Website: https://insforge.space/
+Pricing: https://insforge.space/pricing/
+Checkout: https://insforge.space/checkout/
+Support: support@aigeamy.com
+Type: Hosted SaaS workflow product
+
+Problem:
+- Teams need a quotable product definition, pricing path, evidence trail, and checkout route.
+
+Solution:
+- InsForge Space provides a hosted workflow with public pricing, structured evidence, support contact, and report or receipt outputs.
+
+Useful pages:
+- Home: https://insforge.space/
+- Pricing: https://insforge.space/pricing/
+- Resources: https://insforge.space/resources/
+- Sitemap: https://insforge.space/sitemap.xml

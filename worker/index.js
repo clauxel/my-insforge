@@ -247,7 +247,8 @@ async function handleCheckout(request, env, requestUrl) {
     })
     const checkoutUrl = extractCheckoutUrl(checkout)
     if (!checkoutUrl) throw new Error('Creem did not return a checkout URL.')
-    return jsonResponse({ ok: true, checkoutUrl })
+    return jsonResponse({ ok: true,
+      paymentProvider: 'hosted', checkoutUrl })
   } catch {
     return jsonResponse({ ok: false, error: 'Secure checkout could not be created yet.' }, 502)
   }
@@ -335,7 +336,7 @@ async function fetchAsset(request, env) {
 
     if (staticAssetPaths.has(normalizedPath)) {
       const assetUrl = new URL(request.url)
-      assetUrl.pathname = normalizedPath === '/' ? '/' : `${normalizedPath}/index.html`
+      assetUrl.pathname = normalizedPath === '/' ? '/' : `${normalizedPath}/`
       const assetResponse = await env.SITE_ASSETS.fetch(new Request(assetUrl.toString(), request))
       if (assetResponse.status !== 404) return assetResponse
     }

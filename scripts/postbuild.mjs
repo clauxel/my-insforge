@@ -11,9 +11,9 @@ const sourceIndexPath = path.join(distDir, 'index.html')
 const keywordSourcePath = path.join(rootDir, 'src', 'content', 'keyword-pages.ts')
 const origin = 'https://insforge.space'
 const siteName = 'InsForge'
-const defaultTitle = 'InsForge | Agent-Ready Backend for AI-Built Products'
+const defaultTitle = 'InsForge Space - Agent-Ready Backend for AI-Built Products'
 const defaultDescription =
-  'Plan the right InsForge stack in the browser, then launch auth, Postgres APIs, storage, functions, MCP, and AI workflows without losing momentum.'
+  'Plan an InsForge backend in the browser, then launch auth, Postgres APIs, storage, functions, MCP, and AI workflows without losing product momentum.'
 
 const sourceIndex = await fs.readFile(sourceIndexPath, 'utf8')
 const keywordPages = await loadKeywordPages()

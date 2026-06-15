@@ -18,4 +18,3 @@ npm install
 npm run build
 npx wrangler deploy --keep-vars
 ```
-
