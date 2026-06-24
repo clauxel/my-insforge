@@ -268,7 +268,7 @@ function buildPricingPrerender() {
       <section class="ifg-pricing-page-hero">
         <p class="ifg-eyebrow">Pricing</p>
         <h1>Choose the plan that keeps your backend moving after the frontend demo is already done.</h1>
-        <p class="ifg-lede">Pro annual is preselected for production-minded teams, with yearly billing at 50% off and checkout kept in a centered Creem popup.</p>
+        <p class="ifg-lede">Pro annual is preselected for production-minded teams, with yearly billing at 50% off and checkout kept in a centered Polar popup.</p>
       </section>
     </main>`
 }

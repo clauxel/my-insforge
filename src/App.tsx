@@ -182,7 +182,7 @@ const legalTermsSections = [
   {
     title: 'Payments and returns',
     paragraphs: [
-      'Payments are processed by Creem in a hosted popup window. Successful checkouts return the user to the homepage.',
+      'Payments are processed by Polar in a hosted popup window. Successful checkouts return the user to the homepage.',
       'Displayed annual pricing reflects a 50% discount versus the monthly run-rate for the same plan.',
     ],
   },
@@ -403,7 +403,7 @@ export default function App() {
     trackEvent('planner_change', { key, value })
   }
 
-  async function startHostedCheckout(planId: PlanId, nextBilling: Billing, loadingKey: string, provider = 'creem') {
+  async function startHostedCheckout(planId: PlanId, nextBilling: Billing, loadingKey: string, provider = 'polar') {
     setSelectedPlanId(planId)
     setBilling(nextBilling)
     setCheckoutLoadingKey(loadingKey)
@@ -413,7 +413,7 @@ export default function App() {
     const popup = openCenteredCheckoutWindow()
 
     try {
-      const url = await createCheckoutSession(planId, nextBilling, provider === 'nowpayments' ? '/api/nowpayments-checkout' : '/api/checkout')
+      const url = await createCheckoutSession(planId, nextBilling, provider === 'polar' ? '/api/polar-checkout' : '/api/checkout')
       const popupOpened = sendPopupToCheckout(popup, url)
       if (!popupOpened) {
         try {
@@ -554,7 +554,7 @@ export default function App() {
           {checkoutUrl ? (
             <div className="ifg-checkout-copy">
               <p className="ifg-eyebrow">Secure checkout</p>
-              <h2 id="checkout-title">Creem checkout opened.</h2>
+              <h2 id="checkout-title">Polar checkout opened.</h2>
               <p className="ifg-muted">
                 Complete payment in the centered popup. This page stays in place and returns to the homepage after success.
               </p>
@@ -577,7 +577,7 @@ export default function App() {
               <p className="ifg-eyebrow">Popup needed</p>
               <h2 id="checkout-title">Checkout could not open yet.</h2>
               <p className="ifg-muted">
-                Allow the popup window and try again. The payment flow is designed to stay in a centered Creem window instead of replacing this page.
+                Allow the popup window and try again. The payment flow is designed to stay in a centered Polar window instead of replacing this page.
               </p>
               <div className="ifg-checkout-actions">
                 <button
@@ -855,7 +855,7 @@ export default function App() {
                 <button
                   type="button"
                   className="ifg-btn ifg-btn-ghost"
-                  onClick={() => void startHostedCheckout(plan.id, billing, `${loadingKey}-wallet`, 'nowpayments')}
+                  onClick={() => void startHostedCheckout(plan.id, billing, `${loadingKey}-wallet`, 'polar')}
                   disabled={checkoutLoadingKey !== null}
                 >
                   {checkoutLoadingKey === `${loadingKey}-wallet` ? 'Opening USDC wallet...' : 'Pay with USDC Wallet'}
@@ -1110,7 +1110,7 @@ export default function App() {
         <p className="ifg-eyebrow">Pricing</p>
         <h1>Choose the plan that keeps your backend moving after the frontend demo is already done.</h1>
         <p className="ifg-lede">
-          Pro annual is preselected for production-minded teams, with yearly billing at 50% off and checkout kept in a centered Creem popup.
+          Pro annual is preselected for production-minded teams, with yearly billing at 50% off and checkout kept in a centered Polar popup.
         </p>
       </section>
       {renderPricingSection(true)}
