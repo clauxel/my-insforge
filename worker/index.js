@@ -1,4 +1,3 @@
-import { handlePolarCheckout } from './polar.js'
 const LIVE_ORIGIN = 'https://insforge.space'
 const LIVE_HOST = 'insforge.space'
 const ALT_HOSTS = new Set(['www.insforge.space'])
@@ -354,15 +353,7 @@ export async function handleRequest(request, env) {
   const requestUrl = new URL(request.url)
 
   if (requestUrl.pathname === '/api/polar-checkout') {
-    return handlePolarCheckout(request, env, {
-      plans: planCatalog,
-      defaultPlanId: 'pro',
-      siteName: 'InsForge',
-      siteKey: 'insforge',
-      annualDiscountMultiplier: typeof ANNUAL_DISCOUNT_MULTIPLIER !== 'undefined'
-        ? ANNUAL_DISCOUNT_MULTIPLIER
-        : (typeof annualBillingMultiplier !== 'undefined' ? annualBillingMultiplier : 0.5),
-    })
+    return handleCheckout(request, env, requestUrl)
   }
 
   if (requestUrl.pathname === '/api/runtime') return handleRuntime(requestUrl)
